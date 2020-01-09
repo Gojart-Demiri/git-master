@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- We link the external css sheet to the html document-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="giphy_comment.css">
+    <title>GIPHY API</title>
+  </head>
+  <body>
+    <!-- A div is created with the id=topbar to host the search functionality and a drop-down menu -->
+    <div id="topbar">
+      <h1>GIPHY API</h1>
+      <!-- We need an input from the user -> We use the input element -->
+      <input type="text" id="search" index="" placeholder="Search..." />
+      <!-- We want the user to be able to use a drop-down menu to choose how many
+      gifs she wants to see in this search -> select element with the id=limit -->
+      <select id="limit">
+        <option index="10">10</option>
+        <option index="20">20</option>
+        <option index="30">30</option>
+        <option index="40">40</option>
+        <option index="50">50</option>
+      </select>
+      <!-- We want the user to confirm the search via pressing a button -> we use a button element -->
+      <button type="button" id="btn">Search</button>
+
+      <!-- We create now our pagination elements to control it from javascript. We use an index attribute to address the first and the last element. If the first element is clicked we move 1 page to the left, if we click the last element we move 1 page to the right. We nest our elements in the div pagination. So we can design and positioning our paginination. For the first solution we implemented simple <a> elements. The idea was that we will always display 10 elements (like google). So we dont't have to generate this part dynamically. We just can change the content of the elements!
+      <div id="pagination">
+        <a index"1">1</a>
+        <a index="2">2</a>
+        <a index="3">3</a>
+        <a index="4">4</a>
+        <a index="5">5</a>
+        <a index="6">6</a>
+        <a index="7">7</a>
+        <a index="8">8</a>
+        <a index="9">9</a>
+      </div>
+
+      
+      For the second solution we used the same logic, however we used bootstrap for displaying it. https://getbootstrap.com
+      -->
+
+      <div id="pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item active"><a index="0" class="page-link" href="#">1</a></li> 
+          <li class="page-item"><a index="1" class="page-link" href="#">2</a></li>
+          <li class="page-item"><a index="2" class="page-link" href="#">3</a></li>
+          <li class="page-item"><a index="3" class="page-link" href="#">4</a></li>
+          <li class="page-item"><a index="4" class="page-link" href="#">5</a></li>
+          <li class="page-item"><a index="5" class="page-link" href="#">6</a></li>
+          <li class="page-item"><a index="6" class="page-link" href="#">7</a></li>
+          <li class="page-item"><a index="7" class="page-link" href="#">8</a></li>
+          <li class="page-item"><a index="8" class="page-link" href="#">9</a></li>
+          <li class="page-item"><a index="9" class="page-link" href="#">10</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!--End to the topbar div // We now prepare an empty div where we can display our response of api query -->
+    <div id="result">
+
+    </div>
+
+    <!-- Here we link our javascript file and our libraries to our html file.
+    
+    Our first library can create pop-ups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <!-- Our javascript file -->
+    <script src="giphy_comment.js"></script>
+    <!-- the following libraries are for Bootstrap. Copied from the documentation of their homepage. https://getbootstrap.com -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+  </body>
+</html>

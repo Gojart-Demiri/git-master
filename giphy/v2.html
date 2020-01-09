@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        #topbar {
+            width: 300px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        #topbar > input, select, button {
+            border-radius: 5px;
+            height: 30px;
+            margin: 10px auto;
+            text-align: center;
+            border: 1px solid grey;
+        }
+
+        #result {
+            column-count: 3;
+            margin: 5px;
+            column-gap: 5px;
+        }
+
+        #result img{
+            border-radius: 5px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #showBig {
+            margin: 20px;
+        }
+
+        #showBig img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #result img:hover {
+            border: 7px solid #4778b1;
+        }
+
+        @media (max-width: 500px) {
+            #result {
+                column-count: 2;
+            }
+        }
+
+        /* library */
+        .swal2-container.swal2-backdrop-show {
+            background: rgba(0, 0, 0, 0.82);
+        }
+        .swal2-popup {
+            width: auto;
+            max-width: 100%;
+            padding: 0;
+            background: none;
+        }
+        .swal2-close {
+            top: -15px;
+            color: white;
+        }
+        .swal2-image {
+            width: 35rem;
+            margin: 0;
+            max-width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="topbar">
+    <h1>GIPHY API</h1>
+    <input type="text" id="search" value="" placeholder="Search...">
+    <button type="button" id="searchBtn">Search</button>
+    <button type="button" id="trendsBtn">Trends</button>
+</div>
+<div id="result">
+</div>
+<script src="v2.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- We link the external css sheet to the html document-->
+    <link rel="stylesheet" type="text/css" href="giphy_comment.css" />
+    <title>GIPHY API</title>
+  </head>
+
+  <body>
+    <!-- A div is created with the id=topbar to host the search functionality and a drop-down menu -->
+    <div id="topbar">
+      <h1>GIPHY API</h1>
+      <!-- We need an input from the user -> We use the input element -->
+      <input type="text" id="search" value="" placeholder="Search..." />
+      <!-- We want the user to be able to use a drop-down menu to choose how many
+      gifs she wants to see in this search -> select element with the id=limit -->
+      <select id="limit">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">50</option>
+      </select>
+      <!-- We want the user to confirm the search via pressing a button -> we use a button element -->
+      <button type="button" id="btn">Search</button>
+    </div>
+
+    <!--End to the topbar div // We now prepare an empty div where we can display our response of api query -->
+    <div id="result"></div>
+
+    <!-- Here we link our javascript file to our html file -->
+    <script src="giphy_comment.js"></script>
+  </body>
+</html>

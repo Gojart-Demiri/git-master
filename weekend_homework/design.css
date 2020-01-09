@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+#divButton {
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#divButton > button {
+  border-radius: 5px;
+  height: 30px;
+  margin: 10px auto;
+  text-align: center;
+  border: 1px solid grey;
+}
+
+#divDisplay {
+  width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}

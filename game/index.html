@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="code.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
+    <title>Questions Game</title>
+</head>
+<body onload="loadQuestions()">
+<header id="header">
+    <h1 id="title">Game</h1>
+</header>
+<div class="container">
+    <div id="questions">
+        <div class="questionCount">Score <span id="score">0</span></div>
+        <h2 id="question"><span>Loading...</span></h2>
+    </div>
+    <div id="answer">
+        <ul id="answers" class="answerOptions">
+        </ul>
+        <button id="confirm">Confirm</button>
+    </div>
+</div>
+</body>
+</html>

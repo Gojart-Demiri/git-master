@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    #topbar {
+      width: 300px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    #topbar > input, select, button {
+      border-radius: 5px;
+      height: 30px;
+      margin: 10px auto;
+      text-align: center;
+      border: 1px solid grey;
+    }
+
+    #result {
+    }
+
+    #result img {
+    }
+
+    #result img:hover {
+      border: 7px solid #4778b1;
+    }
+
+    @media (max-width: 500px) {
+      #result {
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="topbar">
+      <h1>GIPHY API</h1>
+      <input type="text" id="search" value="" placeholder="Search...">
+      <select id="limit">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
+      <button type="button" id="btn">Search</button>
+  </div>
+  <div id="result">
+  </div>
+  <script>
+      let apiKey= '4p7w4YD3KnU48WzncbVg5PTrJYdGB4yk';
+
+      generateApiUrl = () => {
+        // get data from search input
+        const searchInput = document.getElementById("search").value;
+
+        // get data from limit select
+        const select = document.getElementById("limit");
+        const selectValue = select.options[select.selectedIndex].value;
+
+        const giphyAPI = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${apiKey}&limit=${selectValue}`;
+        // console.log(giphyAPI);
+        return giphyAPI;
+      } 
+
+      getGif = () => {
+        let url = generateApiUrl();
+
+        fetch(url)
+        .then(function(resp) {
+            // Transform the returned json string data into a real json object.
+            return resp.json();
+        })
+        .then(function(response) {
+            // return the data to be used
+            console.log(response);
+            loadGifs(response.data);  
+        });
+      } 
+
+      loadGifs = (result) => {
+        document.getElementById("result").innerHTML = "";
+
+        result.map(item => {
+          const image = item.images.fixed_height.url;
+          // console.log(item.images.fixed_height.height);
+
+          const newImg = document.createElement("img");
+          newImg.setAttribute("src", image);
+          document.getElementById("result").appendChild(newImg);
+        });
+      }
+
+      document.getElementById("btn").addEventListener("click", getGif);
+     </script>
+</body>
+</html>
